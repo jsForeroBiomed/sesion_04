@@ -20,7 +20,7 @@ async def predict_house(file: UploadFile = File(...)):
     features_df = pd.read_csv("selected_features.csv")
     features = features_df['0'].to_list()
 
-    content = await file.read()
+    contents = await file.read()
 
     df = pd.read_csv(StringIO(contents.decode("utf-8")))
     df = df[features]
